@@ -1,0 +1,21 @@
+= inugami-maven-plugin
+Inugami Maven plugin for build Plugin Artifact
+:encoding: UTF-8
+:toc: macro
+
+toc::[5]
+
+== Description
+
+
+== Informations
+
+
+== Goals
+
+=== buildServer
+
+=== cleanServer
+
+=== deployPlugin
+
