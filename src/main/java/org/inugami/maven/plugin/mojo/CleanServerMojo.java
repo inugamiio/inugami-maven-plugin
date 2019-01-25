@@ -34,28 +34,27 @@ import org.apache.maven.project.MavenProject;
  */
 @Mojo(name = "cleanServer", defaultPhase = LifecyclePhase.NONE)
 public class CleanServerMojo extends AbstractMojo {
-
-	// =========================================================================
-	// ATTRIBUTES
-	// =========================================================================
-	@Parameter(name = "server", required = true)
-	private String server;
-
-	@Parameter(defaultValue = "${project.basedir}", readonly = true)
-	private File basedir;
-
-	@Parameter(defaultValue = "${project}", readonly = true)
-	private MavenProject project;
-
-	// =========================================================================
-	// METHODS
-	// =========================================================================
-	@Override
-	public void execute() throws MojoExecutionException, MojoFailureException {
-		MojoHelper helper = new MojoHelper();
-		helper.drawDeco("Clean server", "*");
-		//TODO:implement server cleaning 
-		throw new RuntimeException("Not implemented yet!");
-	}
-
+    
+    // =========================================================================
+    // ATTRIBUTES
+    // =========================================================================
+    @Parameter(name = "server", required = true)
+    private String       server;
+    
+    @Parameter(defaultValue = "${project.basedir}", readonly = true)
+    private File         basedir;
+    
+    @Parameter(defaultValue = "${project}", readonly = true)
+    private MavenProject project;
+    
+    // =========================================================================
+    // METHODS
+    // =========================================================================
+    @Override
+    public void execute() throws MojoExecutionException, MojoFailureException {
+        final MojoHelper helper = new MojoHelper();
+        helper.drawDeco("Clean server", "*");
+        // TODO:implement server cleaning
+    }
+    
 }
