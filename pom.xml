@@ -20,7 +20,6 @@
     <properties>
         <super.jdk>1.8</super.jdk>
 
-
         <org.apache.maven.version>3.5.0</org.apache.maven.version>
         <org.apache.maven.maven-project.version>2.2.1</org.apache.maven.maven-project.version>
         <org.apache.maven.maven-dependency-plugin.version>3.0.1</org.apache.maven.maven-dependency-plugin.version>
@@ -51,10 +50,23 @@
     ======================================================================== -->
     <scm>
         <url>https://github.com/inugamiio/inugami-maven-plugin</url>
-        <connection>git@github.com:inugamiio/inugami-maven-plugin.git</connection>
-        <developerConnection>git@github.com:inugamiio/inugami-maven-plugin.git</developerConnection>
+        <connection>scm:git:git@github.com:inugamiio/inugami-maven-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:inugamiio/inugami-maven-plugin.git</developerConnection>
         <tag>v0.0.0</tag>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>inugami-release</id>
+            <name>inugami-release</name>
+            <url>http://inugami.io/artifactory/inugami-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>inugami-snapshot</id>
+            <name>inugami-snapshot</name>
+            <url>http://inugami.io/artifactory/inugami-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <!--
     ============================================================================
