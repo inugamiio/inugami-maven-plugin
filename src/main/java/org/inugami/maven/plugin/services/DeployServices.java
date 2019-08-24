@@ -45,7 +45,6 @@ public class DeployServices {
 
 	private static final String PLUGIN_EXTENSION = ".jar";
 
-	private static final Pattern MANIFEST_ARTIFACT_TYPE = Pattern.compile("^ArtifactType:\\s*inugami_plugin.*");
 
 	// =========================================================================
 	// METHODS
@@ -96,7 +95,7 @@ public class DeployServices {
 	}
 
 	private void deployDependencies(List<Gav> dependencies, File server, boolean forceOverride) {
-		final List<Gav> plugins = dependencies.stream().filter(this::isPlugin).collect(Collectors.toList());
+		final List<Gav> plugins = dependencies.stream().filter(CommonsService::isPlugin).collect(Collectors.toList());
 		final List<Gav> libs = dependencies.stream().filter(this::isNotPlugin).collect(Collectors.toList());
 
 		processDeployDependencies(plugins, DependencyType.plugin, server, forceOverride);
@@ -121,43 +120,9 @@ public class DeployServices {
 	// IS PLUGIN OR NOT
 	// =========================================================================
 	private boolean isNotPlugin(Gav gav) {
-		return !isPlugin(gav);
+		return !CommonsService.isPlugin(gav);
 	}
 
-	private boolean isPlugin(Gav gav) {
-		boolean result = false;
-
-		final File tmpDir = FilesUtils.getTmpDir();
-
-		final File artifactTmpDir = FilesUtils.buildFile(tmpDir, FilesUtils.cleanFolderPath(gav.getHash()));
-
-		if (!artifactTmpDir.exists()) {
-			try {
-				FilesUtils.unzipLogless(gav.getPath(), artifactTmpDir);
-			} catch (IOException e) {
-				throw new IllegalArgumentException(e.getMessage());
-			}
-		}
-
-		final File manifest = FilesUtils.buildFile(artifactTmpDir, "META-INF", "MANIFEST.MF");
-		if (manifest.exists() && manifest.canRead()) {
-			final String[] content;
-			try {
-				content = FilesUtils.read(manifest).split("\n");
-			} catch (IOException e) {
-				throw new IllegalArgumentException(e.getMessage());
-			}
-
-			for (int i = content.length - 1; i >= 0; i--) {
-				if (MANIFEST_ARTIFACT_TYPE.matcher(content[i]).matches()) {
-					result = true;
-					break;
-				}
-			}
-		}
-
-		return result;
-	}
 
 	// =========================================================================
 	// NOT IN CONTEXT
