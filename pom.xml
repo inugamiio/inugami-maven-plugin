@@ -10,7 +10,7 @@
     -->
     <groupId>org.inugami.maven.plugin</groupId>
     <artifactId>inugami-maven-plugin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
 
@@ -123,6 +123,13 @@
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>net.sf.flexjson</groupId>
+            <artifactId>flexjson</artifactId>
+            <version>3.3</version>
+        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
