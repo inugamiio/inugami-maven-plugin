@@ -7,9 +7,9 @@
     = PROJECT INFORMATIONS
     ============================================================================
     -->
-    <groupId>org.inugami.maven.plugin</groupId>
+    <groupId>io.inugami.maven.plugin</groupId>
     <artifactId>inugami-maven-plugin</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
 
@@ -17,7 +17,7 @@
     = PROPERTIES
     ======================================================================== -->
     <properties>
-        <super.jdk>1.8</super.jdk>
+        <super.jdk>11</super.jdk>
 
         <org.apache.maven.version>3.5.0</org.apache.maven.version>
         <org.apache.maven.maven-project.version>2.2.1</org.apache.maven.maven-project.version>
@@ -30,7 +30,7 @@
         <junit.junit>4.12</junit.junit>
         <org.eclipse.ifecycle-mapping.version>1.0.0</org.eclipse.ifecycle-mapping.version>
         <org.maven-compiler-plugin.version>3.8.0</org.maven-compiler-plugin.version>
-        <org.maven-plugin-plugin.version>3.4</org.maven-plugin-plugin.version>
+        <org.maven-plugin-plugin.version>3.6.0</org.maven-plugin-plugin.version>
     </properties>
 
 
@@ -54,18 +54,7 @@
         <tag>v0.0.0</tag>
     </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>inugami-release</id>
-            <name>inugami-release</name>
-            <url>http://inugami.io/artifactory/inugami-release</url>
-        </repository>
-        <snapshotRepository>
-            <id>inugami-snapshot</id>
-            <name>inugami-snapshot</name>
-            <url>http://inugami.io/artifactory/inugami-snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
+
 
     <!--
     ============================================================================
