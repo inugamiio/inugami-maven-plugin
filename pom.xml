@@ -29,7 +29,7 @@
 
         <org.slf4j-api.version>1.7.25</org.slf4j-api.version>
         <ch.logback.version>1.2.3</ch.logback.version>
-        <commons-io.version>2.5</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <junit.junit>4.13.1</junit.junit>
         <org.eclipse.ifecycle-mapping.version>1.0.0</org.eclipse.ifecycle-mapping.version>
         <org.maven-compiler-plugin.version>3.8.0</org.maven-compiler-plugin.version>
